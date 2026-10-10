@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aldeia MIX - Gastronomia, Cultura, Sabores e Encontros</title>
+    
+    <!-- SEO e Metatags -->
+    <meta name="description" content="Seja um expositor na Aldeia MIX! Mostre o seu produto para um público que valoriza gastronomia, cultura e experiências.">
+    <meta name="theme-color" content="#361c0d">
+
+    <!-- Tailwind CSS para Estilização -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Oswald (Títulos) e Inter (Textos) -->
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@700&family=Inter:wght@400;500;600&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome para Ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Configuração de Cores Customizadas no Tailwind -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        aldeia: {
+                            cream: '#f6f4ec',
+                            brown: '#361c0d',
+                            orange: '#e27419',
+                            darkOrange: '#c25e0e'
+                        }
+                    },
+                    fontFamily: {
+                        oswald: ['Oswald', 'sans-serif'],
+                        inter: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Fundo com textura suave (opcional para dar o tom rústico) */
+        body {
+            background-color: #f6f4ec;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23e27419' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        /* Detalhes geométricos indígenas (inspirado na logo) */
+        .geometric-border {
+            border-bottom: 8px solid #361c0d;
+            position: relative;
+        }
+        .geometric-border::after {
+            content: '';
+            position: absolute;
+            bottom: -16px;
+            left: 0;
+            width: 100%;
+            height: 8px;
+            background-color: #e27419;
+        }
+            @keyframes drawLine {
+            to { stroke-dashoffset: 0; }
+        }
+
+        @keyframes fadeInFill {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes popIn {
+            0% { transform: scale(0); opacity: 0; }
+            70% { transform: scale(1.15); opacity: 1; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        @keyframes slideUpFade {
+            0% { transform: translateY(30px); opacity: 0; }
+            100% { transform: translateY(0); opacity: 1; }
+        }
+
+        #main-logo .draw-path {
+            fill: none;
+            stroke-dasharray: 3000;
+            stroke-dashoffset: 3000;
+        }
+
+        /* 1. Primeiro desenha a borda dourada externa */
+        #main-logo .shield-border {
+            animation: drawLine 1.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        }
+
+        /* 2. O fundo creme aparece suavemente */
+        #main-logo .shield-bg {
+            opacity: 0;
+            animation: fadeInFill 1s ease-in forwards 1s;
+        }
+
+        /* 3. As linhas marrons tribais grossas são desenhadas (rápido e impactante) */
+        #main-logo .tribal-line {
+            animation: drawLine 1.2s cubic-bezier(0.25, 1, 0.5, 1) forwards 1.2s;
+        }
+
+        /* 4. Textos surgem com estilo 3D */
+        #main-logo .brand-text {
+            font-family: 'Fredoka', sans-serif;
+            font-weight: 700;
+            text-anchor: middle;
+            opacity: 0;
+            /* Espaçamento negativo para imitar a logo original */
+            letter-spacing: -3px; 
+            animation: slideUpFade 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards 2.2s;
+        }
+
+        /* 5. Elementos laranjas "pulam" na tela no final */
+        #main-logo .pop-element {
+            /* Garante que o transform origin funcione perfeitamente no centro de cada forma SVG */
+            transform-box: fill-box;
+            transform-origin: center;
+            transform: scale(0);
+            opacity: 0;
+            animation: popIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+        }
+
+        /* Delays sequenciais para o efeito "Pop" dos detalhes laranjas */
+        #main-logo .pop-tri-top { animation-delay: 2.6s; }
+        #main-logo .pop-dia-1 { animation-delay: 2.7s; }
+        #main-logo .pop-dia-2 { animation-delay: 2.8s; }
+        #main-logo .pop-dia-3 { animation-delay: 2.9s; }
+        #main-logo .pop-tri-bot { animation-delay: 3.0s; }
+
+        /* Linhas laranjas finas nas laterais inferiores */
+        #main-logo .orange-accent-line {
+            animation: drawLine 0.6s ease-out forwards 3.1s;
+            stroke-dasharray: 200;
+            stroke-dashoffset: 200;
+        }
+
+    
+        #main-logo { display:block; width:100%; height:100%; background:transparent; border:0; padding:0; cursor:pointer; }
+        #main-logo:focus-visible { outline:3px solid #361c0d; outline-offset:8px; border-radius:12px; }
+        #main-logo svg { display:block; overflow:visible; }
+        @media (prefers-reduced-motion: reduce) {
+            html { scroll-behavior:auto !important; }
+            *, *::before, *::after { animation:none !important; transition:none !important; }
+            #main-logo .draw-path { stroke-dashoffset:0; }
+            #main-logo .shield-bg, #main-logo .brand-text, #main-logo .pop-element { opacity:1; transform:none; }
+        }
+    </style>
+</head>
+
+<body class="font-inter text-aldeia-brown antialiased selection:bg-aldeia-orange selection:text-white">
+
+    <!-- Navbar simples -->
+    <nav class="fixed w-full top-0 z-50 bg-aldeia-cream/90 backdrop-blur-md shadow-sm">
+        <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
+            <a href="#" class="font-oswald font-bold text-2xl tracking-wide text-aldeia-brown">ALDEIA<span class="text-aldeia-orange">MIX</span></a>
+            <div class="space-x-6 hidden md:block font-medium">
+                <a href="#horarios" class="hover:text-aldeia-orange transition-colors">Horários</a>
+                <a href="#expositor" class="hover:text-aldeia-orange transition-colors">Seja Expositor</a>
+                <a href="#localizacao" class="hover:text-aldeia-orange transition-colors">Localização</a>
+            </div>
+            <a href="#expositor" class="md:hidden bg-aldeia-orange text-white px-4 py-2 rounded-full font-bold text-sm">Expor</a>
+        </div>
+    </nav>
+
+    <!-- Header / Hero Section (Logo Animada) -->
+    <header class="pt-32 pb-20 px-4 flex flex-col items-center text-center max-w-4xl mx-auto geometric-border">
+        
+        <!-- CONTAINER DA LOGO ANIMADA -->
+        <div class="w-64 h-64 md:w-80 md:h-80 mb-8 relative">
+<button type="button" id="main-logo" aria-label="Repetir animação da logo Aldeia MIX" title="Clique para repetir a animação"><svg aria-hidden="true" focusable="false" viewBox="0 0 500 500" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+            
+            <defs>
+                <!-- Gradiente dourado/bronze para a borda externa -->
+                <linearGradient id="goldGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#F2D59B" />
+                    <stop offset="30%" stop-color="#CD974A" />
+                    <stop offset="70%" stop-color="#EABF75" />
+                    <stop offset="100%" stop-color="#8B591D" />
+                </linearGradient>
+
+                <!-- Filtro de sombra para simular o relevo 3D das letras escuras -->
+                <filter id="3d-shadow" x="-20%" y="-20%" width="140%" height="140%">
+                    <feDropShadow dx="3" dy="5" stdDeviation="2" flood-color="#000000" flood-opacity="0.35"/>
+                    <feDropShadow dx="0" dy="1" stdDeviation="1" flood-color="#FFFFFF" flood-opacity="0.5"/>
+                </filter>
+            </defs>
+
+            <!-- Fundo Creme (Preenchimento) -->
+            <path class="shield-bg" 
+                  d="M 250,15 L 460,135 L 460,230 L 400,280 L 460,340 L 380,410 L 440,445 L 250,490 L 60,445 L 120,410 L 40,340 L 100,280 L 40,230 L 40,135 Z" 
+                  fill="#FDF8EB" />
+            
+            <!-- Borda Dourada Externa (Linha) -->
+            <path class="draw-path shield-border" 
+                  d="M 250,15 L 460,135 L 460,230 L 400,280 L 460,340 L 380,410 L 440,445 L 250,490 L 60,445 L 120,410 L 40,340 L 100,280 L 40,230 L 40,135 Z" 
+                  stroke="url(#goldGradient)" stroke-width="12" stroke-linejoin="round"/>
+
+            <!-- O uso de stroke-width grande e stroke-linejoin=round imita perfeitamente as formas da logo -->
+            
+            <!-- Triângulo Topo -->
+            <polygon class="draw-path tribal-line" points="250,45 390,125 110,125" stroke="#1A0F08" stroke-width="16" stroke-linejoin="round"/>
+            <!-- Triângulo Laranja (Interno Topo) -->
+            <polygon class="pop-element pop-tri-top" points="250,75 320,110 180,110" fill="#E86A10"/>
+
+            <!-- Colchetes (L-shapes) ao redor do texto "mix" -->
+            <!-- Esquerda -->
+            <path class="draw-path tribal-line" d="M 140,245 L 90,245 L 90,320 L 140,320" stroke="#1A0F08" stroke-width="15" stroke-linejoin="round"/>
+            <!-- Direita -->
+            <path class="draw-path tribal-line" d="M 360,245 L 410,245 L 410,320 L 360,320" stroke="#1A0F08" stroke-width="15" stroke-linejoin="round"/>
+
+            <!-- Linha Sinuosa Esquerda -->
+            <path class="draw-path tribal-line" d="M 45,230 L 105,280 L 45,340 L 125,410 L 75,445 L 145,475" stroke="#1A0F08" stroke-width="16" stroke-linejoin="round"/>
+            <!-- Linha Sinuosa Direita -->
+            <path class="draw-path tribal-line" d="M 455,230 L 395,280 L 455,340 L 375,410 L 425,445 L 355,475" stroke="#1A0F08" stroke-width="16" stroke-linejoin="round"/>
+
+            <!-- Forma de "V" abaixo dos losangos -->
+            <path class="draw-path tribal-line" d="M 120,385 L 250,435 L 380,385" stroke="#1A0F08" stroke-width="15" stroke-linejoin="round"/>
+
+            <!-- Losango 1 (Esquerda) -->
+            <polygon class="draw-path tribal-line" points="190,335 210,355 190,375 170,355" stroke="#1A0F08" stroke-width="12" stroke-linejoin="round"/>
+            <polygon class="pop-element pop-dia-1" points="190,345 200,355 190,365 180,355" fill="#E86A10"/>
+            
+            <!-- Losango 2 (Centro) -->
+            <polygon class="draw-path tribal-line" points="250,335 270,355 250,375 230,355" stroke="#1A0F08" stroke-width="12" stroke-linejoin="round"/>
+            <polygon class="pop-element pop-dia-2" points="250,345 260,355 250,365 240,355" fill="#E86A10"/>
+
+            <!-- Losango 3 (Direita) -->
+            <polygon class="draw-path tribal-line" points="310,335 330,355 310,375 290,355" stroke="#1A0F08" stroke-width="12" stroke-linejoin="round"/>
+            <polygon class="pop-element pop-dia-3" points="310,345 320,355 310,365 300,355" fill="#E86A10"/>
+
+            <!-- Triângulo Inferior (Marrom) -->
+            <polygon class="draw-path tribal-line" points="220,445 280,445 250,470" stroke="#1A0F08" stroke-width="14" stroke-linejoin="round"/>
+            <!-- Triângulo Inferior (Laranja) -->
+            <polygon class="pop-element pop-tri-bot" points="235,450 265,450 250,463" fill="#E86A10"/>
+
+            <!-- Detalhes Laranjas Extras (Zig-Zag inferior nas laterais) -->
+            <path class="draw-path orange-accent-line" d="M 50,410 L 100,375" stroke="#E86A10" stroke-width="10" stroke-linecap="round"/>
+            <path class="draw-path orange-accent-line" d="M 450,410 L 400,375" stroke="#E86A10" stroke-width="10" stroke-linecap="round"/>
+
+            <!-- O texto usa a classe brand-text e um filtro drop-shadow para pular para fora da tela -->
+            <text x="250" y="215" class="brand-text" font-size="105" fill="#1A0F08" filter="url(#3d-shadow)">aldeia</text>
+            <text x="250" y="305" class="brand-text" font-size="95" fill="#1A0F08" filter="url(#3d-shadow)">mix</text>
+
+        </svg></button>
+        </div>
+
+        <p class="font-oswald tracking-[0.2em] text-aldeia-brown text-sm md:text-lg uppercase font-bold mb-6 flex items-center justify-center flex-wrap gap-2">
+            Gastronomia <span class="text-aldeia-orange">◆</span> Cultura <span class="text-aldeia-orange">◆</span> Sabores <span class="text-aldeia-orange">◆</span> Encontros
+        </p>
+
+        <h1 class="text-4xl md:text-6xl font-oswald font-bold text-aldeia-brown uppercase leading-tight mb-6">
+            O Maior Encontro de <br>
+            <span class="text-aldeia-orange">Sabores e Cultura</span>
+        </h1>
+    </header>
+
+    <!-- Seção de Horários -->
+    <section id="horarios" class="py-20 px-4">
+        <div class="max-w-3xl mx-auto text-center">
+            <h2 class="text-5xl md:text-7xl font-oswald font-bold text-aldeia-brown uppercase mb-2">Horário</h2>
+            <div class="bg-aldeia-orange inline-block px-6 py-2 rounded-lg transform -rotate-2 mb-12 shadow-lg">
+                <p class="text-white font-oswald text-xl md:text-3xl uppercase tracking-wider">de Funcionamento</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-10 mt-8">
+                <!-- Sexta -->
+                <div class="bg-white p-8 rounded-3xl shadow-[0_10px_30px_rgba(54,28,13,0.08)] border-b-4 border-aldeia-orange transform transition hover:-translate-y-2">
+                    <h3 class="text-4xl font-oswald font-bold text-aldeia-orange uppercase mb-2">Sexta</h3>
+                    <p class="text-3xl font-oswald font-bold text-aldeia-brown">16H ÀS 22H</p>
+                </div>
+                
+                <!-- Sábado -->
+                <div class="bg-white p-8 rounded-3xl shadow-[0_10px_30px_rgba(54,28,13,0.08)] border-b-4 border-aldeia-orange transform transition hover:-translate-y-2">
+                    <h3 class="text-4xl font-oswald font-bold text-aldeia-orange uppercase mb-2">Sábado</h3>
+                    <p class="text-3xl font-oswald font-bold text-aldeia-brown">10H ÀS 22H</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção: Seja um Expositor -->
+    <section id="expositor" class="py-20 px-4 bg-aldeia-brown text-aldeia-cream relative overflow-hidden">
+        <!-- Detalhes de fundo -->
+        <div class="absolute top-0 right-0 opacity-10 pointer-events-none">
+            <svg width="400" height="400" viewBox="0 0 100 100"><path d="M0 100 L50 0 L100 100 Z" fill="#e27419"/></svg>
+        </div>
+
+        <div class="max-w-5xl mx-auto text-center relative z-10">
+            <h2 class="text-3xl md:text-5xl font-oswald font-bold uppercase mb-4">
+                Seja um <span class="text-aldeia-orange block md:inline text-5xl md:text-7xl mt-2">Expositor</span><br>
+                na Aldeia Mix
+            </h2>
+            <p class="text-lg md:text-xl font-medium max-w-2xl mx-auto mb-16 text-aldeia-cream/80">
+                Mostre o seu produto para um público que valoriza gastronomia, cultura e experiências.
+            </p>
+
+            <!-- Ícones de Benefícios -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mb-16">
+                <div class="flex flex-col items-center">
+                    <div class="w-16 h-16 bg-aldeia-orange/20 rounded-full flex items-center justify-center mb-4 text-aldeia-orange text-3xl">
+                        <i class="fa-solid fa-utensils"></i>
+                    </div>
+                    <h3 class="font-oswald uppercase font-bold text-lg tracking-wider">Gastronomia</h3>
+                </div>
+                <div class="flex flex-col items-center">
+                    <div class="w-16 h-16 bg-aldeia-orange/20 rounded-full flex items-center justify-center mb-4 text-aldeia-orange text-3xl">
+                        <i class="fa-solid fa-store"></i>
+                    </div>
+                    <h3 class="font-oswald uppercase font-bold text-lg tracking-wider text-center">Produtos<br>Artesanais</h3>
+                </div>
+                <div class="flex flex-col items-center">
+                    <div class="w-16 h-16 bg-aldeia-orange/20 rounded-full flex items-center justify-center mb-4 text-aldeia-orange text-3xl">
+                        <i class="fa-solid fa-users"></i>
+                    </div>
+                    <h3 class="font-oswald uppercase font-bold text-lg tracking-wider">Visibilidade</h3>
+                </div>
+                <div class="flex flex-col items-center">
+                    <div class="w-16 h-16 bg-aldeia-orange/20 rounded-full flex items-center justify-center mb-4 text-aldeia-orange text-3xl">
+                        <i class="fa-solid fa-handshake"></i>
+                    </div>
+                    <h3 class="font-oswald uppercase font-bold text-lg tracking-wider text-center">Novas<br>Conexões</h3>
+                </div>
+            </div>
+
+            <!-- Botão de WhatsApp -->
+            <a href="https://wa.me/5533988199528?text=Olá!%20Tenho%20interesse%20em%20ser%20expositor%20na%20Aldeia%20MIX!" 
+               target="_blank" rel="noopener noreferrer"
+               class="inline-flex items-center justify-center bg-aldeia-orange hover:bg-aldeia-darkOrange text-white text-xl md:text-2xl font-oswald font-bold uppercase py-5 px-10 rounded-full shadow-[0_10px_30px_rgba(226,116,25,0.4)] transition-all transform hover:scale-105 group">
+                <i class="fa-brands fa-whatsapp text-3xl md:text-4xl mr-4 group-hover:animate-bounce"></i>
+                <div class="text-left leading-tight">
+                    <span class="block text-sm font-inter font-normal normal-case mb-1">Entre em contato</span>
+                    (33) 98819-9528
+                </div>
+            </a>
+            <p class="mt-8 font-oswald text-xl uppercase tracking-wide text-aldeia-orange">
+                Vem fazer parte dessa experiência!
+            </p>
+        </div>
+    </section>
+
+    <!-- Seção: Localização -->
+    <section id="localizacao" class="py-20 px-4 relative">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-5xl md:text-7xl font-oswald font-bold text-aldeia-brown uppercase mb-2">Localização</h2>
+            <div class="bg-aldeia-orange inline-block px-6 py-1 rounded-lg mb-12 shadow-md">
+                <p class="text-white font-oswald text-xl uppercase tracking-wider">do Evento</p>
+            </div>
+
+            <div class="flex items-center justify-center mb-8 text-aldeia-orange text-4xl animate-bounce">
+                <i class="fa-solid fa-location-dot"></i>
+            </div>
+            
+            <p class="text-2xl md:text-4xl font-inter text-aldeia-brown mb-12">
+                Rua Wilson Modesto Ribeiro, 210<br>
+                <span class="font-medium">Ipiranga, Belo Horizonte</span>
+            </p>
+
+            <!-- Mapa incorporado do Google -->
+            <div class="rounded-3xl overflow-hidden shadow-2xl border-4 border-white h-[400px] bg-gray-200">
+                <iframe title="Localização da Aldeia MIX" 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3751.468875501064!2d-43.9312!3d-19.8899!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTnCsDUzJzIzLjYiUyA0M8KwNTUnNTIuMyJX!5e0!3m2!1spt-BR!2sbr!4v1697000000000!5m2!1spt-BR!2sbr" 
+                    width="100%" 
+                    height="100%" 
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Botão Flutuante do WhatsApp para conversão contínua -->
+    <a href="https://wa.me/5533988199528?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20a%20Aldeia%20MIX." 
+       target="_blank" rel="noopener noreferrer" aria-label="Fale com a Aldeia MIX pelo WhatsApp"
+       class="fixed bottom-6 right-6 bg-[#25D366] text-white w-16 h-16 rounded-full flex items-center justify-center shadow-2xl hover:bg-[#1ebe57] hover:scale-110 transition-transform z-50">
+        <i class="fa-brands fa-whatsapp text-4xl"></i>
+    </a>
+
+    <!-- Footer -->
+    <footer class="bg-aldeia-brown text-aldeia-cream py-8 text-center border-t border-aldeia-orange/30">
+        <p class="font-oswald tracking-widest uppercase text-sm mb-2">Aldeia MIX © 2024</p>
+        <p class="text-xs opacity-60">Gastronomia, Cultura, Sabores e Encontros.</p>
+    </footer>
+
+<script>
+        const logoButton = document.getElementById('main-logo');
+        logoButton.addEventListener('click', () => {
+            if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+            logoButton.querySelectorAll('svg *').forEach(element => {
+                element.getAnimations().forEach(animation => { animation.cancel(); animation.play(); });
+            });
+        });
+    </script>
+</body>
+</html>
