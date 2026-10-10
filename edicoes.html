@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edições — Aldeia MIX</title>
+    
+    <!-- SEO e Metatags -->
+    <meta name="description" content="Seja um expositor na Aldeia MIX! Mostre o seu produto para um público que valoriza gastronomia, cultura e experiências.">
+    <meta name="theme-color" content="#361c0d">
+
+    <!-- Tailwind CSS para Estilização -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Oswald (Títulos) e Inter (Textos) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome para Ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Configuração de Cores Customizadas no Tailwind -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        aldeia: {
+                            cream: '#f6f4ec',
+                            brown: '#361c0d',
+                            orange: '#e27419',
+                            darkOrange: '#c25e0e'
+                        }
+                    },
+                    fontFamily: {
+                        oswald: ['Oswald', 'sans-serif'],
+                        inter: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Fundo com textura suave (opcional para dar o tom rústico) */
+        body {
+            background-color: #f6f4ec;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23e27419' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        /* Detalhes geométricos indígenas (inspirado na logo) */
+        .geometric-border {
+            border-bottom: 8px solid #361c0d;
+            position: relative;
+        }
+        .geometric-border::after {
+            content: '';
+            position: absolute;
+            bottom: -16px;
+            left: 0;
+            width: 100%;
+            height: 8px;
+            background-color: #e27419;
+        }
+            #main-logo { display:block; width:100%; height:100%; padding:0; border:0; background:transparent; cursor:pointer; }
+        #main-logo:focus-visible { outline:3px solid #361c0d; outline-offset:8px; border-radius:12px; }
+        #main-logo svg { display:block; overflow:visible; }
+        @keyframes amDraw { from { stroke-dashoffset:1; } to { stroke-dashoffset:0; } }
+        @keyframes amReveal { from { opacity:0; } to { opacity:1; } }
+        #main-logo .am-outline { stroke-dasharray:1; animation:amDraw 1.4s ease-out both; }
+        #main-logo .am-base { animation:amReveal 1s ease-out both; }
+        #main-logo .am-ink { animation:amReveal 1s ease-out .5s both; }
+        #main-logo .am-letter { animation:amReveal .8s ease-out 1.1s both; }
+        #main-logo .am-accent { animation:amReveal .7s ease-out 1.7s both; }
+        @media (prefers-reduced-motion: reduce) {
+            html { scroll-behavior:auto !important; }
+            *, *::before, *::after { animation:none !important; transition:none !important; }
+        }
+    </style>
+    <link rel="stylesheet" href="assets/site.css">
+    <script type="module" src="assets/editions.js"></script>
+</head><body class="font-inter text-aldeia-brown antialiased"><nav class="site-nav" aria-label="Navegação principal"><div class="nav-inner">
+<a class="nav-logo" href="./" aria-label="Aldeia MIX — início"><img src="logo-aldeia.svg" alt="Aldeia MIX" width="58" height="62"></a>
+<div class="nav-links"><a href="edicoes.html">Edições</a><a class="nav-secondary" href="index.html#horarios">Horários</a><a class="nav-secondary" href="index.html#localizacao">Localização</a></div>
+<a class="nav-cta" href="index.html#expositor">Quer expor na Aldeia?</a></div></nav><main class="editions-section editions-page" id="editions-root"><h1 class="editions-title">Edições da Aldeia</h1><p>Em breve, registros das nossas edições</p></main><noscript><p class="editions-section">Ative o JavaScript para visualizar a galeria de edições.</p></noscript><aside class="social-dock" aria-label="Redes e contato"><a class="social-instagram" href="https://www.instagram.com/aldeiamixx/" target="_blank" rel="noopener noreferrer" aria-label="Instagram da Aldeia MIX (abre em nova aba)"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a><a class="social-whatsapp" href="https://wa.me/5533988199528?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20a%20Aldeia%20MIX." target="_blank" rel="noopener noreferrer" aria-label="Fale com a Aldeia MIX pelo WhatsApp"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></a></aside><footer class="site-footer"><a href="https://www.instagram.com/aldeiamixx/" target="_blank" rel="noopener noreferrer">Instagram @aldeiamixx</a><p>Aldeia MIX · Gastronomia, cultura, sabores e encontros.</p></footer></body></html>

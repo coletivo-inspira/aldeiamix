@@ -76,22 +76,17 @@
             *, *::before, *::after { animation:none !important; transition:none !important; }
         }
     </style>
+    <link rel="stylesheet" href="assets/site.css">
+    <script type="module" src="assets/editions.js"></script>
 </head>
 
 <body class="font-inter text-aldeia-brown antialiased selection:bg-aldeia-orange selection:text-white">
 
     <!-- Navbar simples -->
-    <nav class="fixed w-full top-0 z-50 bg-aldeia-cream/90 backdrop-blur-md shadow-sm">
-        <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
-            <a href="#" class="font-oswald font-bold text-2xl tracking-wide text-aldeia-brown">ALDEIA<span class="text-aldeia-orange">MIX</span></a>
-            <div class="space-x-6 hidden md:block font-medium">
-                <a href="#horarios" class="hover:text-aldeia-orange transition-colors">Horários</a>
-                <a href="#expositor" class="hover:text-aldeia-orange transition-colors">Seja Expositor</a>
-                <a href="#localizacao" class="hover:text-aldeia-orange transition-colors">Localização</a>
-            </div>
-            <a href="#expositor" class="md:hidden bg-aldeia-orange text-white px-4 py-2 rounded-full font-bold text-sm">Expor</a>
-        </div>
-    </nav>
+    <nav class="site-nav" aria-label="Navegação principal"><div class="nav-inner">
+<a class="nav-logo" href="./" aria-label="Aldeia MIX — início"><img src="logo-aldeia.svg" alt="Aldeia MIX" width="58" height="62"></a>
+<div class="nav-links"><a href="edicoes.html">Edições</a><a class="nav-secondary" href="index.html#horarios">Horários</a><a class="nav-secondary" href="index.html#localizacao">Localização</a></div>
+<a class="nav-cta" href="index.html#expositor">Quer expor na Aldeia?</a></div></nav>
 
     <!-- Header / Hero Section (Logo Animada) -->
     <header class="pt-32 pb-20 px-4 flex flex-col items-center text-center max-w-4xl mx-auto geometric-border">
@@ -121,6 +116,7 @@
         </h1>
     </header>
 
+<section class="editions-section" aria-labelledby="latest-title"><div class="edition-heading-row"><h2 class="editions-title" id="latest-title">Última edição</h2><a class="edition-link" href="edicoes.html">Todas as edições →</a></div><div id="latest-edition"><p>Em breve, registros das nossas edições</p></div><noscript><p>Ative o JavaScript para visualizar a galeria de edições.</p></noscript></section>
     <!-- Seção de Horários -->
     <section id="horarios" class="py-20 px-4">
         <div class="max-w-3xl mx-auto text-center">
@@ -196,7 +192,7 @@
                 <i class="fa-brands fa-whatsapp text-3xl md:text-4xl mr-4 group-hover:animate-bounce"></i>
                 <div class="text-left leading-tight">
                     <span class="block text-sm font-inter font-normal normal-case mb-1">Entre em contato</span>
-                    (33) 98819-9528
+                    Fale pelo WhatsApp
                 </div>
             </a>
             <p class="mt-8 font-oswald text-xl uppercase tracking-wide text-aldeia-orange">
@@ -237,12 +233,7 @@
         </div>
     </section>
 
-    <!-- Botão Flutuante do WhatsApp para conversão contínua -->
-    <a href="https://wa.me/5533988199528?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20a%20Aldeia%20MIX." 
-       target="_blank" rel="noopener noreferrer" aria-label="Fale com a Aldeia MIX pelo WhatsApp"
-       class="fixed bottom-6 right-6 bg-[#25D366] text-white w-16 h-16 rounded-full flex items-center justify-center shadow-2xl hover:bg-[#1ebe57] hover:scale-110 transition-transform z-50">
-        <i class="fa-brands fa-whatsapp text-4xl"></i>
-    </a>
+<aside class="social-dock" aria-label="Redes e contato"><a class="social-instagram" href="https://www.instagram.com/aldeiamixx/" target="_blank" rel="noopener noreferrer" aria-label="Instagram da Aldeia MIX (abre em nova aba)"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a><a class="social-whatsapp" href="https://wa.me/5533988199528?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20a%20Aldeia%20MIX." target="_blank" rel="noopener noreferrer" aria-label="Fale com a Aldeia MIX pelo WhatsApp"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></a></aside>
 
     <!-- Footer -->
     <footer class="bg-aldeia-brown text-aldeia-cream py-8 text-center border-t border-aldeia-orange/30">
